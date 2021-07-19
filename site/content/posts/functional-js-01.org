@@ -1,0 +1,6 @@
+#+title: 함수형 프로그래밍과 Javascript ES6+
+#+author: 김태헌
+#+lastmod: 2021-07-20
+#+categories[]: go emacs hugo org-mode
+#+draft: true
+

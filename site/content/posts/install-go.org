@@ -1,0 +1,31 @@
+#+title: 우분투에 go 설치
+#+author: 김태헌
+#+lastmod: 2021-07-20
+#+categories[]: go emacs hugo org-mode
+#+draft: false
+
+* go 다운로드
+   https://golang.org/doc/install 에서 go 압축파일 다운로드 
+
+* 압축풀기
+   #+begin_src shell
+     rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
+   #+end_src
+
+* path 등록
+- ~/.bashrc(zsh 사용할 경우 ~/.zshrc) 파일을 열어 하단에 go 경로 등록하는 코드 추가
+  #+begin_src shell
+    export GOPATH=$HOME/go
+    export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+  #+end_src
+
+   
+- ~/.zshrc 파일 실행
+  #+begin_src shell
+    source ~/.zshrc 
+  #+end_src
+
+* 설치확인
+   #+begin_src shell
+     go version
+   #+end_src

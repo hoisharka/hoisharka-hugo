@@ -1,0 +1,80 @@
+#+title: [emacs] exec-path-from-shell을 사용한 emacs 환경변수 세팅
+#+author: 김태헌
+#+lastmod: 2021-07-24
+#+categories[]: emacs exec-path-from-shell org-mode
+#+draft: false
+
+emacs org-mode에서 js 코드블럭을 실행시키려고 했는데,
+실행하고 나면 =command not found node= 에러가 발생했다.
+
+node가 설치되어있고 node path도 환경변수에 세팅되어있는데 emacs
+상에서는 node를 찾을 수 없는 이유가 뭘지 고민해봤다.
+
+생각해보니 emacs 안에서 =shell= 을 실행할 땐 node path가 잡혀있었는데
+=eshell= 을 실행할 땐 node path를 못 찾았던 게 떠올랐다.
+
+먼저 org-mode에서 shell code block을 통해 =$PATH= 를 조회해봤다.
+
+: #+begin_src shell :results output :exports both
+:   echo $PATH
+: #+end_src
+:
+: #+RESULTS:
+:  : /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+=$PATH= 환경변수를 조회해보니 역시나 node 경로 같은 건 없었다.  실제
+내 기본 터미널에서 설정된 path가 emacs상으로는 적용되지 않은 것을
+확인했다.
+
+검색해본 결과 [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] 패키지를 사용하면 사용자의 shell
+환경변수를 emacs에 적용할 수 있다는 걸 확인했다.
+
+그런데 이미 내 emacs init 파일에 아래와 같이 포함되어있었다.
+
+: * path
+:   #+begin_src emacs-lisp
+:     (use-package exec-path-from-shell
+:       :ensure t
+:       :config
+:       (when (memq window-system '(mac ns x))
+: 	(exec-path-from-shell-initialize)))
+:   #+end_src
+
+아마 패키지 설치가 제대로 안되었던 모양이었다.
+이때는 =M-x pacakge-refresh-contents= 를 실행하고 emacs를 재실행하면 된다.
+아니면 확실하게 org파일로 된 init 파일로 가서 해당 코드에 커서를 두고 =C-c C-c= 로 실행해도 된다.
+
+emacs 재실행 후 PATH를 조회해보니 다음과 같이 node path를 포함한 경로가 조회되었다.
+emacs를 다시 껐다 켜도 제대로 path가 설정되어있는 것을 확인했다.
+
+: #+begin_src shell :results output :exports both
+:   echo $PATH
+: #+end_src
+: 
+: #+RESULTS:
+: : /home/thkim/.nvm/versions/node/v16.2.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/thkim/go/bin
+
+
+이제 js 코드블럭을 작성하고 =C-c C-c= 하면 코드가 실행되는 것을 확인할 수 있다.
+: #+begin_src js :results output :exports both
+:   console.log('test')
+: #+end_src
+: 
+: #+RESULTS:
+: : test
+
+#+title: js code block 실행 테스트 
+#+begin_src js :results output :exports none
+  console.log('test')
+#+end_src
+
+#+RESULTS:
+: test
+
+#+title: PATH 조회
+#+begin_src shell :results output :exports none
+  echo $PATH
+#+end_src
+
+#+RESULTS:
+: /home/thkim/.nvm/versions/node/v16.2.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/thkim/go/bin

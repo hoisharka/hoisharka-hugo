@@ -1,7 +1,8 @@
 #+title: 우분투에 go 설치
 #+author: 김태헌
-#+lastmod: 2021-07-24
-#+categories[]: go emacs hugo org-mode
+#+lastmod: 2021-07-25
+#+categories[]: development
+#+tags[]: go emacs hugo org-mode
 #+draft: false
 
 * go 다운로드

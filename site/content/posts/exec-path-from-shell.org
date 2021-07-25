@@ -1,7 +1,8 @@
 #+title: [emacs] exec-path-from-shell을 사용한 emacs 환경변수 세팅
 #+author: 김태헌
-#+lastmod: 2021-07-24
-#+categories[]: emacs exec-path-from-shell org-mode
+#+lastmod: 2021-07-25
+#+categories[]: development
+#+tags[]: emacs exec-path-from-shell org-mode
 #+draft: false
 
 emacs org-mode에서 js 코드블럭을 실행시키려고 했는데,

@@ -1,0 +1,9 @@
+#+title: emacs-temp-file
+#+author: 김태헌
+#+lastmod: 2021-07-26
+#+categories[]: development
+#+tags[]: emacs temp-file
+#+draft: true
+
+https://www.reddit.com/r/emacs/comments/29zm3q/how_to_get_rid_of_filename_files_that_emacs_is/
+https://emacsredux.com/blog/2013/05/09/keep-backup-and-auto-save-files-out-of-the-way/

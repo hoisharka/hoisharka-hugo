@@ -1,0 +1,64 @@
+#+HUGO_BASE_DIR: ../../
+#+HUGO_SECTION: ./posts
+
+#+title: iterator
+#+author: 김태헌
+#+lastmod: 2021-07-27
+#+categories[]: development
+#+tags[]: js functional-js es6
+#+draft: true
+
+[[https:inflearn.com/course/functional-es6/dashboard][함수형 프로그래밍과 Javascript ES6+]] 강좌를 듣고 정리하는 포스트입니다.
+
+
+#+NAME: common functions
+#+begin_src js :results verbatim silent :exports none
+  const log = console.log;
+#+end_src
+
+* Array Set Map 순회
+** Array
+   #+begin_src js :noweb strip-export :results output
+     <<common functions>>log('Array -----------');
+     const arr = [1, 2, 3];
+     for (const a of arr) log(a);
+   #+end_src
+
+   #+RESULTS:
+   : Array -----------
+   : 1
+   : 2
+   : 3
+
+** Set
+   #+begin_src js :noweb strip-export :results output
+     <<common functions>>log('Set -----------');
+     const set = new Set([1, 2, 3]);
+     for (const a of set) log(a);
+   #+end_src
+
+   #+RESULTS:
+   : Set -----------
+   : 1
+   : 2
+   : 3
+
+** Map  
+   #+begin_src js :noweb strip-export :results output :session "*Javascript REPL*"
+     <<common functions>>log('Map -----------');
+     const map = new Map([['a', 1], ['b', 2], ['c', 3]]);
+     for (const a of map) log(a);
+
+     function abc() { console.log('abc') }
+   #+end_src
+
+   #+RESULTS:
+   : const log = console.log;log('Map -----------');
+
+
+   #+begin_src js :session "*Javascript REPL*" :results output
+     abc();
+   #+end_src
+
+   #+RESULTS:
+   : 

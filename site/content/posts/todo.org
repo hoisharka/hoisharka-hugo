@@ -1,0 +1,20 @@
+#+title: todo
+#+author: 김태헌
+#+lastmod: 2021-07-27
+#+categories[]: todo
+#+draft: true
+
+
+* org-mode noweb 알아보기
+  https://orgmode.org/manual/Noweb-Reference-Syntax.html
+  https://www.offerzen.com/blog/literate-programming-empower-your-writing-with-emacs-org-mode
+  http://ehneilsen.net/notebook/orgExamples/org-examples.html
+* literal programming
+  https://zzamboni.org/post/my-blogging-setup-with-emacs-org-mode-ox-hugo-hugo-gitlab-and-netlify/
+* 메일링 서비스 앱
+
+* hugo org 예제 분석
+  https://niklasfasching.github.io/go-org/#footnote-1
+
+* js org session
+  https://www.reddit.com/r/emacs/comments/oe8iva/org_babel_javascript_session/

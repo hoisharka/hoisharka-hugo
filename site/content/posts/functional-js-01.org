@@ -1,6 +1,51 @@
-#+title: 함수형 프로그래밍과 Javascript ES6+
+#+title: 함수형 프로그래밍과 Javascript ES6+ 01
 #+author: 김태헌
-#+lastmod: 2021-07-20
-#+categories[]: go emacs hugo org-mode
+#+lastmod: 2021-07-26
+#+categories[]: development
+#+tags[]: js functional-js es6
 #+draft: true
 
+[[https:inflearn.com/course/functional-es6/dashboard][함수형 프로그래밍과 Javascript ES6+]] 강좌를 듣고 정리하는 포스트입니다.
+
+
+#+NAME: common functions
+#+begin_src js :results verbatim silent :exports none
+  const log = console.log;
+#+end_src
+
+
+* 평가
+  - 코드가 계산(Evaluation) 되어 값을 만드는 것
+
+* 일급
+  - 값을 다룰 수 있다.1
+  - 변수에 담을 수 있다.
+  - 함수의 인자로 사용될 수 있다.
+  - 함수의 결과로 사용될 수 있다.
+
+    
+  #+begin_src js :noweb strip-export :results output
+    <<common functions>>
+    const a = 10;
+    const add10 = a => a + 10;
+    const r = add10(a);
+    log(r);
+  #+end_src
+ 
+  #+RESULTS:
+  : 20
+
+* 일급 함수
+  - 함수를 값으로 다룰 수 있다.
+  - 조합성과 추상화의 도구 
+
+  #+NAME: first class function
+  #+begin_src js :noweb strip-export :results output
+    <<common functions>>
+    
+    const add5 = a => a + 5;
+    log(add5(10));
+  #+end_src
+
+  #+RESULTS: first class function
+  : 15

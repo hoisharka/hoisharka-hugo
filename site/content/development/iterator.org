@@ -1,9 +1,6 @@
-#+HUGO_BASE_DIR: ../../
-#+HUGO_SECTION: ./posts
-
 #+title: iterator
 #+author: 김태헌
-#+lastmod: 2021-07-27
+#+lastmod: 2022-02-02
 #+categories[]: development
 #+tags[]: js functional-js es6
 #+draft: true
@@ -19,7 +16,7 @@
 * Array Set Map 순회
 ** Array
    #+begin_src js :noweb strip-export :results output
-     <<common functions>>log('Array -----------');
+     log('Array -----------');
      const arr = [1, 2, 3];
      for (const a of arr) log(a);
    #+end_src
@@ -32,7 +29,7 @@
 
 ** Set
    #+begin_src js :noweb strip-export :results output
-     <<common functions>>log('Set -----------');
+     log('Set -----------');
      const set = new Set([1, 2, 3]);
      for (const a of set) log(a);
    #+end_src
@@ -44,21 +41,18 @@
    : 3
 
 ** Map  
-   #+begin_src js :noweb strip-export :results output :session "*Javascript REPL*"
-     <<common functions>>log('Map -----------');
+   #+begin_src js :noweb strip-export :results output
+     <<common functions>>
+     log('Map -----------');
      const map = new Map([['a', 1], ['b', 2], ['c', 3]]);
      for (const a of map) log(a);
-
-     function abc() { console.log('abc') }
    #+end_src
 
    #+RESULTS:
-   : const log = console.log;log('Map -----------');
+   : Map -----------
+   : [ 'a', 1 ]
+   : [ 'b', 2 ]
+   : [ 'c', 3 ]
 
 
-   #+begin_src js :session "*Javascript REPL*" :results output
-     abc();
-   #+end_src
 
-   #+RESULTS:
-   : 
